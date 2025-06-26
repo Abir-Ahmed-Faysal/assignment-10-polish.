@@ -54,7 +54,7 @@ const Home = () => {
               <img
                 src="https://i.ibb.co/8nqR7xrW/GIF-Loop-Mince.webp"
                 alt="Banner GIF"
-                className="w-full h-auto object-cover"
+                className="lg:max-h-full md:max-h-[300px] h-auto object-cover"
               />
             </div>
           </div>

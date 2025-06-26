@@ -19,18 +19,17 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        hydrateFallbackElement: <div className="absolute top-[50%] text-secondary left-[50%]">
-          <span className="loading loading-spinner loading-xl"></span>
-        </div>,
+        hydrateFallbackElement: (
+          <div className="absolute top-[50%] text-secondary left-[50%]">
+            <span className="loading loading-spinner loading-xl"></span>
+          </div>
+        ),
         loader: () => fetch("http://localhost:3000/sorted?sort=dsc"),
         element: <Home></Home>,
       },
       {
         path: "/allRecipe",
-        hydrateFallbackElement: <div className="absolute top-[50%] text-secondary left-[50%]">
-          <span className="loading loading-spinner loading-xl"></span>
-        </div>,
-        loader: () => fetch("http://localhost:3000/userData"),
+
         element: <AllRecipe></AllRecipe>,
       },
       {
@@ -43,13 +42,13 @@ export const router = createBrowserRouter([
       },
       {
         path: "/myRecipe/:email",
-        hydrateFallbackElement: <div className="absolute top-[50%] text-secondary left-[50%]">
-          <span className="loading loading-spinner loading-xl"></span>
-        </div>,
+        hydrateFallbackElement: (
+          <div className="absolute top-[50%] text-secondary left-[50%]">
+            <span className="loading loading-spinner loading-xl"></span>
+          </div>
+        ),
         loader: ({ params }) =>
-          fetch(
-            `http://localhost:3000/userData/recipe/${params.email}`
-          ),
+          fetch(`http://localhost:3000/userData/recipe/${params.email}`),
         element: (
           <PrivateRoute>
             <MyRecipe></MyRecipe>
@@ -71,9 +70,11 @@ export const router = createBrowserRouter([
       { path: "/register", element: <Register></Register> },
       {
         path: "/recipeDetails/:id",
-        hydrateFallbackElement: <div className="absolute top-[50%] text-secondary left-[50%]">
-          <span className="loading loading-spinner loading-xl"></span>
-        </div>,
+        hydrateFallbackElement: (
+          <div className="absolute top-[50%] text-secondary left-[50%]">
+            <span className="loading loading-spinner loading-xl"></span>
+          </div>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/userData/${params.id}`),
         element: (

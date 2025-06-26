@@ -112,7 +112,7 @@ const MyRecipes = () => {
         };
 
         return (
-          <div key={_id} className="bg-base-100 rounded-2xl shadow-md p-4">
+          <div key={_id} className="bg-base-100 text-secondary rounded-2xl shadow-md p-4">
             <img
               src={image}
               alt={title}
@@ -143,7 +143,7 @@ const MyRecipes = () => {
             </p>
             <div className="flex justify-between">
               <button
-                className="btn"
+                className="btn bg-green-500"
                 onClick={() =>
                   document.getElementById("my_modal_4").showModal()
                 }
@@ -163,7 +163,7 @@ const MyRecipes = () => {
 
                   <div className="modal-action">
                     <div className="min-h-screen py-12 px-4">
-                      <div className="max-w-4xl mx-auto p-8 bg-secondary rounded-2xl shadow-xl">
+                      <div className="max-w-4xl mx-auto p-8 bg-primary rounded-2xl shadow-xl">
                         <form
                           method="dialog"
                           onSubmit={updateFormData}
@@ -279,11 +279,17 @@ const MyRecipes = () => {
                           <div className="text-right">
                             <button
                               type="submit"
-                              className="btn btn-primary px-6"
+                              className="btn  px-6"
                             >
                               update
                             </button>
                           </div>
+                        </form>
+                        <form >
+                          <button className="btn">
+                             cancel
+                          </button>
+                       
                         </form>
                       </div>
                     </div>

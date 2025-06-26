@@ -48,7 +48,7 @@ const RecipeDetails = () => {
   };
 
   return (
-    <div className="min-h-screen bg-base-100 text-base-content py-8 px-4">
+    <div className="min-h-screen bg-third text-base-content py-8 px-4">
       <div className="max-w-5xl mx-auto mb-6 p-4 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 rounded-xl shadow-inner text-center">
         <p className="text-lg md:text-xl font-semibold text-pink-700 dark:text-pink-300">
           {likes} people interested in this recipe

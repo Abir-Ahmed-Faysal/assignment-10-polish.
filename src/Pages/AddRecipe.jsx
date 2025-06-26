@@ -79,7 +79,7 @@ const AddRecipe = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 bg-base-200">
+    <div className="min-h-screen py-12 px-4 bg-third">
       <div className="max-w-4xl mx-auto p-8 bg-base-100 text-base-content rounded-2xl shadow-lg">
         <h2 className="text-4xl font-bold text-center text-primary mb-8">
           🍽️ Add New Recipe
@@ -87,7 +87,7 @@ const AddRecipe = () => {
 
         <form onSubmit={handleFormData} className="space-y-6">
           <div>
-            <label className="label font-semibold">Image URL</label>
+            <label className="label text-secondary font-semibold">Image URL</label>
             <input
               type="text"
               name="image"
@@ -97,7 +97,7 @@ const AddRecipe = () => {
           </div>
 
           <div>
-            <label className="label font-semibold">Recipe Title</label>
+            <label className="label text-secondary font-semibold">Recipe Title</label>
             <input
               type="text"
               name="title"
@@ -107,7 +107,7 @@ const AddRecipe = () => {
           </div>
 
           <div>
-            <label className="label font-semibold">Ingredients</label>
+            <label className="label text-secondary font-semibold">Ingredients</label>
             <textarea
               name="ingredients"
               placeholder="Ingredients (comma separated)"
@@ -117,7 +117,7 @@ const AddRecipe = () => {
           </div>
 
           <div>
-            <label className="label font-semibold">Instructions</label>
+            <label className="label text-secondary font-semibold">Instructions</label>
             <textarea
               name="instructions"
               placeholder="Cooking Instructions"
@@ -128,7 +128,7 @@ const AddRecipe = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="label font-semibold">Cuisine Type</label>
+              <label className="label text-secondary font-semibold">Cuisine Type</label>
               <select
                 name="cuisine"
                 className="select select-bordered w-full"
@@ -147,7 +147,7 @@ const AddRecipe = () => {
             </div>
 
             <div>
-              <label className="label font-semibold">
+              <label className="label font-semibold text-secondary">
                 Preparation Time (minutes)
               </label>
               <input
@@ -160,7 +160,7 @@ const AddRecipe = () => {
           </div>
 
           <div>
-            <label className="label font-semibold">Categories</label>
+            <label className="label text-secondary font-semibold">Categories</label>
             <div className="flex flex-wrap gap-4">
               {category.map((cat) => (
                 <label key={cat} className="flex items-center gap-2">
