@@ -5,7 +5,7 @@ const AllRecipe = () => {
   const [recipes, setRecipes] = useState([]);
   const [sortOrder, setSortOrder] = useState(""); // "asc" or "dsc"
 
-  const BASE_URL = "http://localhost:3000/sorted";
+  const BASE_URL = "https://fusioncrave.vercel.app/sorted";
 
   const fetchSorted = async (order) => {
     const query = order ? `?sort=${order}` : "";
@@ -26,6 +26,15 @@ const AllRecipe = () => {
 
   return (
     <div>
+      <div className="text-center my-10 px-4">
+  <h1 className="text-4xl font-bold text-primary mb-4">
+    All Recipes – Explore Delicious Dishes
+  </h1>
+  <p className="text-base text-gray-600 max-w-2xl mx-auto">
+    Discover a variety of mouthwatering recipes, from traditional favorites to modern creations. Whether you're a beginner or a seasoned chef, find step-by-step instructions, ingredients, and cooking tips to make every meal special.
+  </p>
+</div>
+
       {/* Sort Control */}
       <div className="text-center p-6">
         <label className="block mb-2 text-lg font-semibold text-gray-700">

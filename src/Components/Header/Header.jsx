@@ -7,7 +7,7 @@ import "react-tooltip/dist/react-tooltip.css";
 
 const Header = () => {
   const { user, photoURL, isLoading, logout } = useContext(AuthContext);
-  const email = user?.email;
+
   const [theme, setTheme] = useState("light");
 
   const handleLogOut = () => {
@@ -33,9 +33,10 @@ const Header = () => {
       {[
         { to: "/", label: "Home" },
         { to: "/allRecipe", label: "All Recipes" },
-        { to: "/addRecipe", label: "Add Recipe" },
-        { to: `/myRecipe/${email}`, label: "My Recipes" },
-        { to: "/myWhitelist", label: "My Wishlist" },
+        { to: "/dashboard", label: "Dashboard" },
+        { to: "/about", label: "About us" },
+        { to: "/contact", label: "support" },
+     
       ].map((item) => (
         <li key={item.to}>
           <NavLink
@@ -57,7 +58,7 @@ const Header = () => {
   return (
     <div>
       <Tooltip id="my-tooltip" />
-      <div className="bg-[rgb(255,141,107)] shadow-sm">
+      <div className="bg-primary shadow-sm">
         <div className="navbar max-w-7xl mx-auto ">
           {/* Navbar Start */}
           <div className="navbar-start pl-10 md:pl-10 lg:pl-10">
@@ -109,11 +110,11 @@ const Header = () => {
                   <>
                     <Link
                       to={"/logIn"}
-                      className="btn btn-sm btn-outline btn-primary"
+                      className="btn btn-sm bg-white text-secondary btn-primary"
                     >
                       Login
                     </Link>
-                    <Link to={"/register"} className="btn btn-sm btn-primary">
+                    <Link to={"/register"} className="btn bg-white text-secondary btn-sm btn-primary">
                       Register
                     </Link>
                   </>
@@ -129,14 +130,14 @@ const Header = () => {
                           data-tooltip-id="my-tooltip"
                           data-tooltip-content="Dark"
                         >
-                          <FiMoon  className="text-white"/>
+                          <FiMoon className="text-white" />
                         </div>
                       ) : (
                         <div
                           data-tooltip-id="my-tooltip"
                           data-tooltip-content="Light"
                         >
-                          <FiSun  className="text-white"/>
+                          <FiSun className="text-white" />
                         </div>
                       )}
                     </button>

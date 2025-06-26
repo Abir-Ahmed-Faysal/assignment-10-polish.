@@ -10,12 +10,16 @@ import LogIn from "../Pages/LogIn";
 import PrivateRoute from "../Secure/PrivateRoute";
 import RecipeDetails from "../Pages/RecipeDetails";
 import Error from "../Pages/Error";
+import Contact from "../Pages/Contact";
+import AboutUs from "../Pages/AboutUs";
+import Dashboard from "../Pages/Dashboard/Dashboard";
+
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root></Root>,
-    errorElement: <Error></Error>,
+    element: <Root />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
@@ -24,65 +28,69 @@ export const router = createBrowserRouter([
             <span className="loading loading-spinner loading-xl"></span>
           </div>
         ),
-        loader: () => fetch("http://localhost:3000/sorted?sort=dsc"),
-        element: <Home></Home>,
+        loader: () => fetch("https://fusioncrave.vercel.app/sorted?sort=dsc"),
+        element: <Home />,
       },
       {
         path: "/allRecipe",
-
-        element: <AllRecipe></AllRecipe>,
-      },
-      {
-        path: "/addRecipe",
-        element: (
-          <PrivateRoute>
-            <AddRecipe></AddRecipe>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/myRecipe/:email",
-        hydrateFallbackElement: (
-          <div className="absolute top-[50%] text-secondary left-[50%]">
-            <span className="loading loading-spinner loading-xl"></span>
-          </div>
-        ),
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/userData/recipe/${params.email}`),
-        element: (
-          <PrivateRoute>
-            <MyRecipe></MyRecipe>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/myWhitelist",
-        element: (
-          <PrivateRoute>
-            <MyWishlist></MyWishlist>
-          </PrivateRoute>
-        ),
+        element: <AllRecipe />,
       },
       {
         path: "/logIn",
-        element: <LogIn></LogIn>,
+        element: <LogIn />,
       },
-      { path: "/register", element: <Register></Register> },
       {
-        path: "/recipeDetails/:id",
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/about",
+        element: <AboutUs />,
+      }, {
+        path: "recipeDetails/:id",
         hydrateFallbackElement: (
           <div className="absolute top-[50%] text-secondary left-[50%]">
             <span className="loading loading-spinner loading-xl"></span>
           </div>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/userData/${params.id}`),
-        element: (
-          <PrivateRoute>
-            <RecipeDetails></RecipeDetails>
-          </PrivateRoute>
-        ),
+          fetch(`https://fusioncrave.vercel.app/userData/${params.id}`),
+        element: <RecipeDetails />,
       },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "addRecipe",
+        element: <AddRecipe />,
+      },
+      {
+        path: "myRecipe/:email",
+        hydrateFallbackElement: (
+          <div className="absolute top-[50%] text-secondary left-[50%]">
+            <span className="loading loading-spinner loading-xl"></span>
+          </div>
+        ),
+        loader: ({ params }) =>
+          fetch(`https://fusioncrave.vercel.app/userData/recipe/${params.email}`),
+        element: <MyRecipe />,
+      },
+      {
+        path: "myWishlist",
+        element: <MyWishlist />,
+      },
+     
     ],
   },
 ]);

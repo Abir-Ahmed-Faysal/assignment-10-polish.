@@ -57,9 +57,9 @@ const Register = () => {
 
   const handleGoogleSignUp = () => {
     googleSignIn()
-      .then((result) => {
-        console.log(result);
-        console.log("google sign Up successfully");
+      .then(() => {
+      
+        toast.success("google sign Up successfully");
         navigate(targetPath);
       })
       .catch((error) => toast.error(error));

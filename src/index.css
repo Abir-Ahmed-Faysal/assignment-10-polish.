@@ -5,7 +5,7 @@
 @plugin "daisyui/theme" {
   name: "dark";
   /* default: true; */
-  --color-primary: #caeb66;
+ 
   --color-secondary: teal;
 }
 @plugin "daisyui/theme" {

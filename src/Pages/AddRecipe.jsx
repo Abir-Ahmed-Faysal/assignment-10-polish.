@@ -64,14 +64,18 @@ const AddRecipe = () => {
       categories: selectedCategories,
     };
 
-    toast.success("Recipe successfully submitted!");
-    fetch("http://localhost:3000/userData", {
+  
+    fetch("https://fusioncrave.vercel.app/userData", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(finalData),
     })
       .then((res) => res.json())
-      .then((data) => console.log("the server returned:", data));
+      .then((data) => {
+        if (data.insertedId) {
+  toast.success("Recipe successfully submitted!");
+}
+      });
 
    
     form.reset();

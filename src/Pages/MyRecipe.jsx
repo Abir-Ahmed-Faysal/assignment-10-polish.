@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 
 const MyRecipes = () => {
   const initialRecipes = useLoaderData();
-  console.log(initialRecipes);
 
   const [recipes, setRecipes] = useState(initialRecipes || []);
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -23,6 +22,7 @@ const MyRecipes = () => {
           cuisine,
           prepTime,
           categories,
+          userEmail,
           like,
         } = recipe;
 
@@ -68,7 +68,7 @@ const MyRecipes = () => {
           };
 
           toast.success("Recipe successfully Updated!");
-          fetch("http://localhost:3000/userData", {
+          fetch("https://fusioncrave.vercel.app/userData", {
             method: "PATCH",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(finalData),
@@ -76,9 +76,12 @@ const MyRecipes = () => {
             .then((res) => res.json())
             .then((data) => {
               if (data.modifiedCount) {
-                fetch("http://localhost:3000/userData")
+                fetch(`https://fusioncrave.vercel.app/userData/recipe/${userEmail}`)
                   .then((res) => res.json())
-                  .then((data) => setRecipes(data));
+                  .then((data) => {
+                    setRecipes(data)
+                    toast.success('recipe update success')
+                  });
               }
             });
 
@@ -99,7 +102,7 @@ const MyRecipes = () => {
         };
 
         const handleDelete = (id) => {
-          fetch(`http://localhost:3000/userData/${id}`, {
+          fetch(`https://fusioncrave.vercel.app/userData/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())
@@ -112,7 +115,10 @@ const MyRecipes = () => {
         };
 
         return (
-          <div key={_id} className="bg-base-100 text-secondary rounded-2xl shadow-md p-4">
+          <div
+            key={_id}
+            className="bg-base-100 text-secondary rounded-2xl shadow-md p-4"
+          >
             <img
               src={image}
               alt={title}
@@ -277,19 +283,13 @@ const MyRecipes = () => {
                           </div>
 
                           <div className="text-right">
-                            <button
-                              type="submit"
-                              className="btn  px-6"
-                            >
+                            <button type="submit" className="btn  px-6">
                               update
                             </button>
                           </div>
                         </form>
-                        <form >
-                          <button className="btn">
-                             cancel
-                          </button>
-                       
+                        <form>
+                          <button className="btn">cancel</button>
                         </form>
                       </div>
                     </div>

@@ -6,6 +6,7 @@ import {
   AiOutlineClockCircle,
 } from "react-icons/ai";
 import AuthContext from "../Context/AuthContext";
+import { toast } from "react-toastify";
 
 const RecipeDetails = () => {
   const data = useLoaderData();
@@ -38,13 +39,24 @@ const RecipeDetails = () => {
     setLikes(newLikeCount);
     setLiked(!liked);
 
-    fetch(`http://localhost:3000/userData/${id}`, {
-      method: "PATCH",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ like: newLikeCount }),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log("Server returned:", data));
+   fetch(`https://fusioncrave.vercel.app/userData/${id}`, {
+  method: "PATCH",
+  headers: {
+    "content-type": "application/json"
+  },
+  body: JSON.stringify({ like: newLikeCount }),
+})
+  .then((res) => res.json())
+  .then((data) => {
+ 
+    if (data.modifiedCount > 0) {
+      toast.success("Like updated successfully!");
+    }
+  })
+  .catch((error) => {
+    console.error("Error updating like:", error);
+    toast.error("Something went wrong!");
+  });
   };
 
   return (
