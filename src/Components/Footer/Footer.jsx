@@ -3,10 +3,10 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="footer footer-center p-10 bg-gray-900 text-white">
+    <footer className="footer footer-center bg-primary p-10  text-white">
      
       <aside>
-        <h2 className="text-2xl font-bold">Fusion Crave</h2>
+        <h2 className="text-2xl font-bold">Crave&Fusion</h2>
         <p className="mt-1">Your source for delicious inspiration.</p>
         <p>Contact: info@recipebook.com | +1 (234) 567-8901</p>
         <p>Copyright © {new Date().getFullYear()} - All rights reserved</p>
@@ -14,6 +14,7 @@ const Footer = () => {
 
       
       <nav>
+        <h2 className="text-xl font-semibold mb-2">Follow Us</h2>
         <div className="grid grid-flow-col gap-4">
       <a href="https://twitter.com/McDonalds">
         <svg

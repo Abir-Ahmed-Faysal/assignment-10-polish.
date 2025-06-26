@@ -6,10 +6,10 @@ import { FaLeaf } from 'react-icons/fa';
 const FeaturesSection = () => {
   return (
     <div >
-      <h2 className="text-3xl font-bold text-primary mb-4">
+      <h2 className="text-5xl font-bold text-primary mb-4">
         Fresh, Frozen, and Ready in Minutes
       </h2>
-      <p className="text-lg text-secondary max-w-3xl mx-auto mb-10">
+      <p className="text-lg font-bold text-secondary max-w-3xl mx-auto mb-10">
         At Crave&Fusion we believe entertaining should be easy enough that you can <em>(and want!)</em> to do it often. <br />
         Selling our appetizers frozen is the perfect way to do that.
       </p>
@@ -17,19 +17,19 @@ const FeaturesSection = () => {
       <div className="flex flex-col md:flex-row items-center justify-center gap-12">
         {/* Preservative Free */}
         <div className="flex flex-col items-center">
-          <GiTestTubes className="text-5xl text-primary mb-2" />
+          <GiTestTubes className="text-7xl text-primary mb-2" />
           <p className="font-semibold text-secondary">Preservative Free</p>
         </div>
 
         {/* Just Bake & Serve */}
         <div className="flex flex-col items-center">
-          <PiOvenThin  className="text-5xl text-primary mb-2" />
+          <PiOvenThin  className="text-7xl text-primary mb-2" />
           <p className="font-semibold text-secondary">Just Bake & Serve</p>
         </div>
 
         {/* Non GMO */}
         <div className="flex flex-col items-center">
-          <FaLeaf className="text-5xl text-primary mb-2" />
+          <FaLeaf className="text-7xl text-primary mb-2" />
           <p className="font-semibold text-secondary">secondaryNon GMO</p>
         </div>
       </div>

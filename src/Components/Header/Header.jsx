@@ -43,8 +43,8 @@ const Header = () => {
             className={({ isActive }) =>
               `relative text-white font-semibold px-2 py-1 text-lg
               after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px]
-              after:bg-primary after:transition-all after:duration-300
-              ${isActive ? "after:w-full" : "after:w-0 hover:after:w-full"}`
+              after:bg-white after:transition-all after:duration-300
+              ${isActive ? "after:w-full" : "after:w-0 "}`
             }
           >
             {item.label}
@@ -129,14 +129,14 @@ const Header = () => {
                           data-tooltip-id="my-tooltip"
                           data-tooltip-content="Dark"
                         >
-                          <FiMoon />
+                          <FiMoon  className="text-white"/>
                         </div>
                       ) : (
                         <div
                           data-tooltip-id="my-tooltip"
                           data-tooltip-content="Light"
                         >
-                          <FiSun />
+                          <FiSun  className="text-white"/>
                         </div>
                       )}
                     </button>
